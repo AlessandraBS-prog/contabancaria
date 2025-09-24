@@ -1,6 +1,9 @@
 package conta_bancaria;
 
 import conta_bancaria.model.Conta;
+import conta_bancaria.model.ContaCorrente;
+import conta_bancaria.model.ContaPoupanca;
+
 import java.util.ArrayList;
 
 import java.util.Scanner;
@@ -12,6 +15,22 @@ public class Menu {
 
         Scanner leia = new Scanner(System.in);
         int opcao;
+     // Teste da Conta Corrente
+        ContaCorrente cc1 = new ContaCorrente(2, 123, 1, "José da Silva", 0.0f, 1000.0f);
+        cc1.visualizar();
+        cc1.sacar(12000.0f);
+        cc1.visualizar();
+        cc1.depositar(5000.0f);
+        cc1.visualizar();
+
+        // Teste da Conta Poupança
+        ContaPoupanca cp1 = new ContaPoupanca(3, 123, 2, "Maria dos Santos", 100000.0f, 15);
+        cp1.visualizar();
+        cp1.sacar(1000.0f);
+        cp1.visualizar();
+        cp1.depositar(5000.0f);
+        cp1.visualizar();
+
 
         while (true) {
             System.out.println(Cores.TEXT_YELLOW + Cores.ANSI_BLACK_BACKGROUND
