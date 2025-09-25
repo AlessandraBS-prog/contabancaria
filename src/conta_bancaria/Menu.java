@@ -85,7 +85,24 @@ public class Menu {
             	    System.out.print("Saldo Inicial: ");
             	    float saldo = Float.parseFloat(leia.nextLine());
 
-            	    Conta novaConta = new Conta(numero, agencia, tipo, titular, saldo);
+            	    // Conta novaConta = new Conta(numero, agencia, tipo, titular, saldo);
+            	    Conta novaConta;
+
+            	    if (tipo == 1) {
+            	        System.out.print("Limite de Crédito: ");
+            	        float limite = leia.nextFloat();
+            	        leia.nextLine(); // limpar buffer
+            	        novaConta = new ContaCorrente(numero, agencia, tipo, titular, saldo, limite);
+            	    } else if (tipo == 2) {
+            	        System.out.print("Dia do Aniversário da Conta: ");
+            	        int aniversario = leia.nextInt();
+            	        leia.nextLine(); // limpar buffer
+            	        novaConta = new ContaPoupanca(numero, agencia, tipo, titular, saldo, aniversario);
+            	    } else {
+            	        System.out.println("Tipo de conta inválido!");
+            	        return; // sai do case 1
+            	    }
+
 
             	    contas.add(novaConta); // ✅ adiciona à lista
 
